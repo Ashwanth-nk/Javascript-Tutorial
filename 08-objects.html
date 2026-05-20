@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Objects</title>
+  </head>
+
+  <body>
+
+    <script>
+      
+      const product = {
+        name: 'socks',
+        price: 1000,
+        rating :{
+          stars : 4.5,
+          count : 19
+        },
+        fun: function func1(){
+          console.log('Hi');
+        }
+      };
+      console.log(product);
+      console.log(product.name);
+
+      product.price = 500; 
+
+      product.newprop = true;
+      console.log(product);
+
+      delete product.newprop;
+      console.log(product);
+
+      console.log(product.rating.stars);
+
+      console.log(product.fun());
+
+      const jsonContent = JSON.stringify(product);
+      console.log(jsonContent);
+      console.log(JSON.parse(jsonContent));
+
+      /* (both same)
+      const name = product.name;
+      const { name , price } = product; (called destructuring)
+       */
+
+      
+      const object = {
+        //message : message;
+        message,
+        //method : function func1(){
+        // consol.log('Hi!');
+        //}
+
+        method (){
+          consol.log('Hi!'); 
+        }
+
+       };
+
+    </script>
+  </body>
+</html>
