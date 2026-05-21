@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Advanced Functions</title>
+  </head>
+  <body>
+    <button class="js-but">Clcik</button>
+    <script>
+      //Function is a type of value (can be saved in variable)
+      const func1 = function greeting(){
+        console.log('Hi');
+      };
+
+      //Anonymous function
+      const func2 = function(){
+        console.log('Hi');
+      };
+
+      //We can give a function inside argument value
+      
+      //settimeout, setInterval --> Asynchronous Code
+      //setimeout (functions which wait for n milliseconds and runs the function)
+      setTimeout(function(){
+        console.log('HI')
+      },3000);
+
+      console.log('HII')
+
+      //setimeout (functions which wait for n milliseconds and runs the function in that interval infinitely)
+      setInterval(function(){
+        console.log('HI')
+      },3000);
+
+      //For loop using forEach method
+      [
+        'gun',
+        'bullets',
+        'rifle'
+      ].forEach(function(value, index){
+        console.log(value);
+      })
+
+      //Arrow function
+      const arrowFunc = () => {
+        console.log('hello');
+      };
+      arrowFunc()
+
+      //One-line function
+      const oneLine = () => 2+4;
+
+      //EventListener similar to onclick!
+      const buttonElement = document.querySelector('.js-but');
+      buttonElement.addEventListener('click', arrowFunc());
+
+      buttonElement.removeEventListener('click',arrowFunc());
+
+      buttonElement.addEventListener('click', () => {
+        console.log('attack');
+      });
+
+      //Filter method (if inside func true then that value only will come in new list)
+      console.log([1,-3,5].filter((value, index) => {
+        if (value>0){
+          return true
+        } else {
+          return false
+        }
+      }));
+
+      //Map method (takes each iteration value and do changes and put in new list)
+      console.log([1,1,2].map((value, index) => {
+        return value += 2;
+      }))
+
+      //Closure (functions which have access to some value always, those values will be part of that function)
+
+    </script>
+  </body>
+</html>

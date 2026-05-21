@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Arrays and Loops</title>
+  </head>
+  <body>
+
+    <style>
+     
+    </style>
+
+    <p>Todo List Practice 1</p>
+
+    <div>
+
+      <input class="todo1" type="text" placeholder="Todo Name">
+
+      <button class="but1" 
+      onclick="
+        if (document.querySelector('.todo1').value){
+          arr1.push(document.querySelector('.todo1').value);
+          document.querySelector('.todo1').value = '';
+        }
+        console.log(arr1);
+      
+      ">Add</button>
+
+    </div>
+
+    <p>Todo List Practice 2</p>
+
+    <div>
+
+      <input class="todo2" type="text" placeholder="Todo Name">
+
+      <button class="but2"
+      onclick="
+        if (document.querySelector('.todo2').value){
+          arr2.push(document.querySelector('.todo2').value);
+          document.querySelector('.todo2').value = '';
+        }
+
+        let todoListHTML = '';
+
+        for (let i = 0; i < arr2.length; i++){
+          const todo = arr2[i];
+          const html = `<p>${todo}</p>`; 
+          todoListHTML += html;
+        }
+
+        document.querySelector('.ptodo').innerHTML = todoListHTML;
+
+      
+      ">Add</button>
+
+      <div class="ptodo"></div>
+
+    </div>
+
+    <p>Todo List Practice 3</p>
+
+    <div>
+
+      <input class="todo3" type="text" placeholder="Todo Name">
+      <input class="todo4" type="date" placeholder="Todo Name">
+
+      <button class="but3"
+      onclick="
+        if (document.querySelector('.todo3').value){
+          arr3.push([document.querySelector('.todo3').value, document.querySelector('.todo4').value]);
+          document.querySelector('.todo3').value = '';
+        }
+
+        let todolistHTML = '';
+
+        for (let i = 0; i < arr3.length; i++){
+          const todo = arr3[i];
+          const html = `
+          <p>
+            ${todo} 
+            <button class='delete' 
+            onclick='
+              arr3.splice(${i},1);
+              renderTodolist(3);
+            '>DELETE</button> 
+          </p>
+          `; 
+          todolistHTML += html;
+        }
+
+        document.querySelector('.ptodo3').innerHTML = todolistHTML;
+
+
+
+      ">Add</button>
+
+      <div class="ptodo3"></div>
+
+    </div>
+
+    <script>
+
+      function renderTodolist (j) {
+
+        let todoListHTML = '';
+
+        for (let i = 0; i < arr3.length; i++){
+          const todo = window[`arr${j}`][i];
+          const html =`
+          <p>
+            ${todo[0]} 
+            ${todo[1]}
+             
+            <button class='delete' 
+            onclick='
+              arr3.splice(${i},1);
+              renderTodolist(3);
+            '>DELETE</button>
+
+          </p>`; 
+          todoListHTML += html;
+        }
+
+        document.querySelector(`.ptodo${j}`).innerHTML = todoListHTML;
+
+      }
+      var arr1 = [];
+      var arr2 = [];
+      var arr3 = [];
+    </script>
+
+  </body>
+</html>
